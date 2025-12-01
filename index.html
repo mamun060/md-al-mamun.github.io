@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD Al Mamun - Frontend Software Engineer</title>
+    <meta name="description" content="Frontend Software Engineer with 3+ years experience in React.js, Next.js, Redux, Django, and modern web technologies.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0ea5e9',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.15);
+        }
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            color: white;
+        }
+        nav {
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.9);
+        }
+        .profile-image {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-100">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#home" class="text-2xl font-bold gradient-text">Md Al Mamun</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-primary transition-colors">Home</a>
+                    <a href="#about" class="hover:text-primary transition-colors">About</a>
+                    <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+                    <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
+                    <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-light border-t border-gray-800">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#home" class="block hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="block hover:text-primary transition-colors">About</a>
+                <a href="#skills" class="block hover:text-primary transition-colors">Skills</a>
+                <a href="#experience" class="block hover:text-primary transition-colors">Experience</a>
+                <a href="#projects" class="block hover:text-primary transition-colors">Projects</a>
+                <a href="#contact" class="block hover:text-primary transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Image First on Mobile, Second on Desktop -->
+                <div class="flex justify-center order-1 md:order-2">
+                    <div class="relative profile-image">
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-primary to-cyan-600 rounded-full opacity-20 blur-3xl absolute"></div>
+                        <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-primary shadow-2xl">
+                            <img src="unnamed.png" alt="MD Al Mamun - Frontend Software Engineer" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Second on Mobile, First on Desktop -->
+                <div class="order-2 md:order-1">
+                    <p class="text-primary text-lg mb-4">Hello, I'm</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">MD Al Mamun</h1>
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold gradient-text mb-6">Frontend Software Engineer</h2>
+                    <p class="text-gray-400 text-base md:text-lg mb-8 leading-relaxed">
+                        Frontend-focused software engineer with 3+ years of experience building modern, responsive, and scalable web applications using React.js, Next.js, Redux Toolkit, RTK Query, and REST APIs.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <a href="#contact" class="bg-primary hover:bg-cyan-600 text-white px-6 md:px-8 py-3 rounded-lg font-semibold transition-all">
+                            Get In Touch
+                        </a>
+                        <a href="#projects" class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 md:px-8 py-3 rounded-lg font-semibold transition-all">
+                            View Projects
+                        </a>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="mailto:almamun.dev21@gmail.com" class="text-gray-400 hover:text-primary transition-colors" title="Email">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/mamun060" target="_blank" class="text-gray-400 hover:text-primary transition-colors" title="GitHub">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/8801953103206" target="_blank" class="text-gray-400 hover:text-primary transition-colors" title="WhatsApp">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                        </a>
+                        <a href="tel:+8801953103206" class="text-gray-400 hover:text-primary transition-colors" title="Phone">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-dark-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">About <span class="gradient-text">Me</span></h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-primary">Who I Am</h3>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        I'm a passionate Frontend Software Engineer based in Dhaka, Bangladesh, with 3+ years of professional experience. I specialize in creating modern, responsive, and user-centric web applications that deliver exceptional user experiences.
+                    </p>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        My expertise spans across the full frontend stack - from crafting pixel-perfect UIs with React.js and Next.js to managing complex application state with Redux Toolkit and integrating RESTful APIs. I also have hands-on experience with backend technologies like Django and DRF, enabling me to build complete full-stack solutions.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        I thrive on solving complex problems, optimizing performance, and collaborating with cross-functional teams to deliver production-ready applications that meet business objectives.
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-dark p-6 rounded-lg border border-gray-800">
+                        <h4 class="text-xl font-semibold mb-4 text-primary">Education</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="font-semibold">B.Sc. in Computer Science Engineering (CSE)</p>
+                                <p class="text-gray-400">Dhaka International University</p>
+                                <p class="text-sm text-gray-500">CGPA: 3.52/4.00</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Diploma in Computer Technology (CMT)</p>
+                                <p class="text-gray-400">Brahmanbaria Polytechnic Institute</p>
+                                <p class="text-sm text-gray-500">2016-2021 • CGPA: 3.50/4.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-dark p-6 rounded-lg border border-gray-800">
+                        <h4 class="text-xl font-semibold mb-4 text-primary">Quick Facts</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li class="flex items-center"><span class="text-primary mr-2">▹</span> 3+ Years Professional Experience</li>
+                            <li class="flex items-center"><span class="text-primary mr-2">▹</span> Full-Stack Capabilities</li>
+                            <li class="flex items-center"><span class="text-primary mr-2">▹</span> ERP Solutions Expert (Odoo)</li>
+                            <li class="flex items-center"><span class="text-primary mr-2">▹</span> Based in Dhaka, Bangladesh</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Technical <span class="gradient-text">Skills</span></h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Frontend -->
+                <div class="bg-dark-light p-8 rounded-xl border border-gray-800">
+                    <div class="text-primary mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Frontend Development</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">JavaScript</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">React.js</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Next.js</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">React-Redux</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Redux Toolkit</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">RTK Query</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">TanStack Query</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Jest</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Vitest</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">React Testing Library</span>
+                    </div>
+                </div>
+
+                <!-- Styling -->
+                <div class="bg-dark-light p-8 rounded-xl border border-gray-800">
+                    <div class="text-primary mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">CSS & Styling</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">CSS3</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Sass</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Flexbox</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Grid Layout</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Bootstrap</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="bg-dark-light p-8 rounded-xl border border-gray-800">
+                    <div class="text-primary mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Backend & APIs</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Python</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Django</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Django REST Framework</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">REST APIs</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">FastAPI</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Unit Testing</span>
+                    </div>
+                </div>
+
+                <!-- Database -->
+                <div class="bg-dark-light p-8 rounded-xl border border-gray-800">
+                    <div class="text-primary mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Databases</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">SQL</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">MySQL</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">PostgreSQL</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">MongoDB</span>
+                    </div>
+                </div>
+
+                <!-- ERP -->
+                <div class="bg-dark-light p-8 rounded-xl border border-gray-800">
+                    <div class="text-primary mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">ERP & Business Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Odoo</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">ERP Solutions</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Functional Consulting</span>
+                    </div>
+                </div>
+
+                <!-- AI & Development Tools -->
+                <div class="bg-dark-light p-8 rounded-xl border border-gray-800">
+                    <div class="text-primary mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">AI & Dev Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">GitHub Copilot</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">ChatGPT</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Gemini</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Claude</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">V0</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Cursor AI</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">VSCode</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">GitHub</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">GitLab</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Docker</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">AWS S3</span>
+                        <span class="skill-badge px-3 py-1 bg-dark text-sm rounded-full border border-gray-800">Postman</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-dark-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Professional <span class="gradient-text">Experience</span></h2>
+            <div class="space-y-8">
+                <!-- Experience 1 -->
+                <div class="bg-dark p-8 rounded-xl border border-gray-800 card-hover">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-primary mb-2">Software Engineer (Frontend Specialist)</h3>
+                            <p class="text-xl font-medium mb-2">Smart Field Service - IDOL Group</p>
+                            <p class="text-gray-400">Dhaka, Bangladesh</p>
+                        </div>
+                        <span class="text-gray-400 mt-2 md:mt-0 whitespace-nowrap">Nov 2022 - Present</span>
+                    </div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Designed and implemented user interfaces with React.js and Next.js for production-grade applications</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Integrated REST APIs using RTK Query and ensured scalable state management with Redux Toolkit</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Implemented unit testing with React Testing Library and Vitest to ensure code reliability and quality</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Created and managed REST APIs using Django DRF, including database modeling and optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Built full-stack web applications using Django, HTML, CSS, and JavaScript, ensuring seamless end-to-end delivery</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Provided support as an Odoo Functional Consultant, configuring and maintaining ERP modules</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Contributed to medical ERP customization, ensuring compliance with healthcare requirements</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Collaborated with backend developers to deliver full-stack solutions with a focus on UI/UX quality</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Lead frontend design, improving performance and maintainability</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="bg-dark p-8 rounded-xl border border-gray-800 card-hover">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-primary mb-2">Junior Web Developer</h3>
+                            <p class="text-xl font-medium mb-2">ThemeShaper LTD</p>
+                            <p class="text-gray-400">Dhaka, Bangladesh</p>
+                        </div>
+                        <span class="text-gray-400 mt-2 md:mt-0 whitespace-nowrap">Dec 2021 - Oct 2022</span>
+                    </div>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Built reusable UI components with React.js, improving development speed and scalability</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Worked closely with designers and backend engineers to deliver end-to-end web applications</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Advocated for responsive design and frontend coding standards</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-3 mt-1">▹</span>
+                            <span>Assisted backend engineers in building CRUD modules to support business logic</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Featured <span class="gradient-text">Projects</span></h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-dark-light rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-br from-primary to-cyan-600 flex items-center justify-center">
+                        <svg class="w-20 h-20 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Real Estates Website</h3>
+                        <p class="text-gray-400 mb-4">Lead frontend development using React.js and Next.js, handled API integration, and collaborated with designers for seamless UI/UX implementation.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 bg-dark rounded-full text-primary border border-gray-800">React.js</span>
+                            <span class="text-xs px-2 py-1 bg-dark rounded-full text-primary border border-gray-800">Next.js</span>
+                            <span class="text-xs px-2 py-1 bg-dark rounded-full text-primary border border-gray-800">REST API</span>
+                        </div>
+                        <a href="https://silveroakglobal.com" target="_blank" class="text-primary hover:underline inline-flex items-center">
+                            View Live <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-dark-light rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-br from-cyan-600 to-blue-600 flex items-center justify-center">
+                        <svg class="w-20 h-20 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">E-commerce Web App</h3>
+                        <p class="text-gray-400 mb-4">Contributed to UI/UX design and developed reusable components using React.js and Next.js with focus on responsive design and user experience.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 bg-dark rounded-full text-primary border border-gray-800">React.js</span>
+                            <span class="text-xs px-2 py-1 bg-dark rounded-full text-primary border border-gray-800">Next.js</span>
+                            <span class="text-xs px-2 py-1 bg-dark rounded-full text-primary border border-gray-800">UI/UX</span>
+                        </div>
+                        <a href="https://buniyadi.com" target="_blank" class="text-primary hover:underline inline-flex items-center">
+                            View Live <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-dark-light rounded-xl overflow-hidden border border-gray-800 card-hover">
+                    <div class="h-48 bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                        <svg class="w-20 h-20 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">E-commerce Platform</h3>
+                        <p class="text-gray-400 mb-4">Built frontend and admin CMS with Next.js 14, integrated APIs using RTK Query, and implemented effective state management with Redux Toolkit.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 bg-dark rounded-full text-primary border border-gray-800">Next.js 14</span>
+                            <span class="text-xs px-2 py-1 bg-dark rounded-full text-primary border border-gray-800">RTK Query</span>
+                            <span class="text-xs px-2 py-1 bg-dark rounded-full text-primary border border-gray-800">Redux</span>
+                        </div>
+                        <a href="https://idolmart.shop" target="_blank" class="text-primary hover:underline inline-flex items-center">
+                            View Live <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 bg-dark-light border border-gray-800 rounded-xl p-8 text-center">
+                <p class="text-gray-400 leading-relaxed">
+                    <strong class="text-white">Note:</strong> Most of my work has been on internal business applications such as HRM systems, e-commerce platforms, and medical management systems. These are live but privately hosted due to client confidentiality. My primary contributions include building frontend components with React.js/Next.js, integrating REST APIs, and supporting backend development. The portfolio above highlights selected public projects.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark-light">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Get In <span class="gradient-text">Touch</span></h2>
+            <div class="bg-dark p-8 md:p-12 rounded-xl border border-gray-800">
+                <p class="text-gray-400 text-center mb-8 text-lg">
+                    I'm currently open to new opportunities and interesting projects. Whether you have a question or just want to say hi, feel free to reach out!
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <a href="mailto:almamun.dev21@gmail.com" class="bg-dark-light p-6 rounded-lg border border-gray-800 hover:border-primary transition-all text-center">
+                        <svg class="w-8 h-8 mx-auto mb-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                        </svg>
+                        <h3 class="font-semibold mb-1">Email</h3>
+                        <p class="text-sm text-gray-400">almamun.dev21@gmail.com</p>
+                    </a>
+                    <a href="https://github.com/mamun060" target="_blank" class="bg-dark-light p-6 rounded-lg border border-gray-800 hover:border-primary transition-all text-center">
+                        <svg class="w-8 h-8 mx-auto mb-3 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <h3 class="font-semibold mb-1">GitHub</h3>
+                        <p class="text-sm text-gray-400">@mamun060</p>
+                    </a>
+                    <a href="tel:+8801953103206" class="bg-dark-light p-6 rounded-lg border border-gray-800 hover:border-primary transition-all text-center">
+                        <svg class="w-8 h-8 mx-auto mb-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                        </svg>
+                        <h3 class="font-semibold mb-1">Phone</h3>
+                        <p class="text-sm text-gray-400">+880 1953 103206</p>
+                    </a>
+                </div>
+                <div class="text-center">
+                    <a href="mailto:almamun.dev21@gmail.com" class="inline-block bg-primary hover:bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold transition-all">
+                        Send me an Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">© <span id="year"></span> MD Al Mamun.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth scroll offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
